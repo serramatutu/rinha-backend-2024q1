@@ -24,7 +24,7 @@ pub fn main() !void {
             allocator,
             .{
                 .on_request = onRequest,
-                .port = 8080,
+                .port = 80,
                 .log = true,
                 .max_clients = 100000,
             },
@@ -38,7 +38,7 @@ pub fn main() !void {
 
         // listen
         try listener.listen();
-        std.debug.print("Listening on 0.0.0.0:8080\n", .{});
+        std.debug.print("Listening on 0.0.0.0:80\n", .{});
         zap.start(.{
             .threads = 8,
             .workers = 8,

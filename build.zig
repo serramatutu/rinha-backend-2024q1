@@ -38,6 +38,13 @@ pub fn build(b: *std.Build) void {
     exe.addModule("zap", zap.module("zap"));
     exe.linkLibrary(zap.artifact("facil.io"));
 
+    // Add pg
+    const pg = b.dependency("pg", .{
+        .target = target,
+        .optimize = optimize,
+    });
+    exe.addModule("pg", pg.module("pg"));
+
     // This *creates* a Run step in the build graph, to be executed when another
     // step is evaluated that depends on it. The next line below will establish
     // such a dependency.

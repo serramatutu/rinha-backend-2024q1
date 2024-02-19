@@ -18,9 +18,9 @@ RUN --mount="type=cache,target=/app/zig-cache" \
     zig build -Doptimize=Debug
 
 
-# Multi-stage builds
 
 FROM alpine:3.19 AS prod
 
+# Multi-stage build para reduzir o tamanho da imagem final (não inclui o devkit inteiro do Zig)
 COPY --from=build /app/zig-out/bin /app
 ENTRYPOINT [ "/app/rinha-backend" ]

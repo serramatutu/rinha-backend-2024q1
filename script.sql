@@ -1,6 +1,0 @@
-CREATE DATABASE IF NOT EXISTS rinha;
-
-CREATE TABLE IF NOT EXISTS rinha.clientes(
-    id BIGSERIAL PRIMARY KEY,
-    
-)

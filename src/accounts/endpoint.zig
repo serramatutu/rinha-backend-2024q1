@@ -4,11 +4,6 @@ const HttpError = @import("../error/types.zig").HttpError;
 
 pub const Self = @This();
 
-// const _sub_routes = std.ComptimeStringMap([]const u8, .{
-//     &.{ "/transacoes", "a" },
-//     &.{ "/extrato", "b" },
-// });
-
 const AccountHandler = (*const fn (account_id: u64, req: zap.Request) void);
 
 const _sub_routes = std.ComptimeStringMap(AccountHandler, .{
